@@ -1,66 +1,44 @@
-import Head from "next/head";
-import NavBar from "../components/nav_bar_component/Nav_bar";
-import useTranslation from 'next-translate/useTranslation';
-import Link from 'next/link';
-import { useEffect, useState } from "react";
-export default function Home() {
-  const { t,lang } = useTranslation('common');
-  
-  const [data,setData] = useState();
-  const [language,setLanguage] = useState([0,'en']);
+import ProgramComponent from '@/components/Home_component/Program_component';
+import HomeHeader from '@/components/Home_component/Home_header';
 
 
-useEffect(()=>{
-  fetch("https://admin.joacademy.net/api/v1/settings", {
-    "headers": {
-      "accept": "application/json, text/plain, */*",
+
+export async function getStaticProps(context) {
+  const { locale } = context
+
+  const res = await fetch("https://admin.joacademy.net/api/v1/settings", {
+    headers: {
+      "accept": "application/json, text/plain, /",
       "accept-language": "en-US,en;q=0.9,ar;q=0.8,en-GB;q=0.7",
-      "api": `${language[0]}`,
-      "lang": `${language[1]}`,
+      "api": 1,
+      "lang": locale,
     },
-  }).then(res => res.json())
-    .then(result => {
-      setData(result)
-    });
-},[])
+  });
+  const data = await res.json();
 
+  return {
+    props: {
+      data,
+    },
+  };
+}
 
+export default function Home({ data }) {
 
   return (
-
     <>
-      <div >
-        <h1 className="text-5xl font-bold text-primary text-center mt-12">{t('homeTitle')}</h1>
-        <h3 className="text-center text-2xl mt-6">{t('homeDescription')}</h3>
+      <div className="flex flex-col place-items-center">
+        <HomeHeader />
         <div className="programs flex justify-center mt-8">
-       
-        {data?.data.programs.map((prog)=>{
-          return   <div className="program w-64 h-96 bg-primary rounded-lg mx-2 ">
-          <h3 className="text-white font-bold text-2xl text-center mt-8 mx-12">{prog.name}</h3>
-
+          {data?.data.programs.map((prog , index) => {
+            return <ProgramComponent key={index} image={prog.image} name={prog.name} color={prog?.colors[0]} />
+          })}
         </div>
-         })}
-        
-        </div>
+        <div className="bg-primary w-[67rem] h-52 rounded-md mt-10"></div>
       </div>
+      <div className="h-[50rem]"></div>
     </>
   );
 }
 
 
-
-// "referrer": "https://www.joacademy.com/",
-// "referrerPolicy": "strict-origin-when-cross-origin",
-// "body": null,
-// "method": "GET",
-// "mode": "cors",
-// "credentials": "omit"
-
-// "priority": "u=1, i",
-// "program": "3",
-// "sec-ch-ua": "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\"",
-// "sec-ch-ua-mobile": "?0",
-// "sec-ch-ua-platform": "\"Windows\"",
-// "sec-fetch-dest": "empty",
-// "sec-fetch-mode": "cors",
-// "sec-fetch-site": "cross-site"

@@ -1,10 +1,16 @@
 import "@/styles/globals.css";
-import NavBar from "../components/nav_bar_component/Nav_bar";
+import useTranslation from "next-translate/useTranslation";
+import Layout from "@/components/layout/Layout";
 
 export default function App({ Component, pageProps }) {
-  return <>  
-  <NavBar/>
-  <Component {...pageProps} /></>
+  const {lang} = useTranslation('common');
+
+  return <div dir={`${lang === 'en' ? 'rtl' : 'ltr'}`}>  
+  <Layout>
+     <Component  {...pageProps} />
+  </Layout>
+
+  </div>
   
   ;
 }
