@@ -1,6 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-};
+// /** @type {import('next').NextConfig} */
 
-export default nextConfig;
+import nextTranslate from 'next-translate-plugin';
+
+export default nextTranslate({
+  reactStrictMode: true,
+});
+// const nextConfig = {
+//   reactStrictMode: true,
+// };
+
+// export default nextConfig;
