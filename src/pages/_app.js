@@ -5,9 +5,9 @@ import Layout from "@/components/layout/Layout";
 export default function App({ Component, pageProps }) {
   const {lang} = useTranslation('common');
 
-  return <div dir={`${lang === 'en' ? 'rtl' : 'ltr'}`}>  
+  return <div dir={`${lang === 'en' ? 'ltt' : 'rtl'}`}>  
   <Layout>
-     <Component  {...pageProps} />
+     <Component   {...pageProps} />
   </Layout>
 
   </div>

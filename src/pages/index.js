@@ -1,5 +1,6 @@
 import ProgramComponent from '@/components/Home_component/Program_component';
 import HomeHeader from '@/components/Home_component/Home_header';
+import PalestineProgram from '@/components/Palestine_program';
 
 
 
@@ -29,16 +30,14 @@ export default function Home({ data }) {
     <>
       <div className="flex flex-col place-items-center">
         <HomeHeader />
-        <div className="programs flex justify-center mt-8">
-          {data?.data.programs.map((prog , index) => {
+        <div className="programs flex justify-center mt-2">
+          {data?.data.programs.map((prog, index) => {
             return <ProgramComponent key={index} image={prog.image} name={prog.name} color={prog?.colors[0]} />
           })}
         </div>
-        <div className="bg-primary w-[67rem] h-52 rounded-md mt-10"></div>
+        <PalestineProgram/>
       </div>
-      <div className="h-[50rem]"></div>
     </>
   );
 }
-
 
