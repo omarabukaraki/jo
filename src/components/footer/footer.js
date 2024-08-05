@@ -10,6 +10,8 @@ import { FaYoutube } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import logo from '../../../public/jo_logo.svg';
 import Image from "next/image";
+import Link from 'next/link';
+import {linkWhatsapp} from '../../../utils.js'
 
 
 
@@ -51,11 +53,14 @@ const Footer = () => {
                     <div className='w-full h-[20.5rem] flex flex-col justify-between items-center'>
                         <h3 className='text-gray-200 text-base my-4'>{t('installMobileApp')}</h3>
                         <div className='flex'>
-                            <div className='w-36 bg-black text-white p-2 font-bold rounded-md border-2 flex items-center mx-6'><FaApple className='mx-2 text-4xl' />
-                                {t('getItNowPlayStore')}</div>
-                            <div className='w-36 bg-black text-white p-2 font-bold rounded-md border-2 flex items-center mx-6'>
-                                <IoLogoGooglePlaystore className='mx-2 text-4xl' />
-                                {t('getItNowGoogleStore')}</div>
+                            <Link target='_blank' href={'https://apps.apple.com/jo/app/jo-academy/id1667155848'}> <div className='w-36 bg-black text-white p-2 font-bold rounded-md border-2 flex items-center mx-6'><FaApple className='mx-2 text-4xl' />
+                                {t('getItNowPlayStore')}</div></Link>
+
+                            <Link target='_blank' href={'https://play.google.com/store/apps/details?id=com.jo_Joacademy&pli=1'}>
+                                <div className='w-36 bg-black text-white p-2 font-bold rounded-md border-2 flex items-center mx-6'>
+                                    <IoLogoGooglePlaystore className='mx-2 text-4xl' />
+                                    {t('getItNowGoogleStore')}</div></Link>
+
                         </div>
                         <h3 className='text-gray-200 text-base my-4'>{t('downloadDesktopApp')}</h3>
                         <div className='flex'>
@@ -67,11 +72,11 @@ const Footer = () => {
                         </div>
                         <h3 className='text-gray-200 text-base my-4'>{t('socialMediaPages')}</h3>
                         <div className='w-1/3 flex justify-evenly '>
-                            <h1 className='text-2xl text-white'><FaFacebookF /></h1>
-                            <h1 className='text-2xl text-white'><FaXTwitter /></h1>
-                            <h1 className='text-2xl text-white'> <AiFillInstagram /></h1>
-                            <h1 className='text-2xl text-white'><FaYoutube /></h1>
-                            <h1 className='text-2xl text-white'> <IoLogoWhatsapp /></h1>
+                            <Link target='_blank' href={'https://www.facebook.com/JoAcademy.Tawjihi'} className='text-2xl text-white'><FaFacebookF /></Link>
+                            <Link target='_blank' href={'https://x.com/JoAcademy3'} className='text-2xl text-white'><FaXTwitter /></Link>
+                            <Link target='_blank' href={'https://www.instagram.com/joacademy/'} className='text-2xl text-white'> <AiFillInstagram /></Link>
+                            <Link target='_blank' href={'https://www.youtube.com/channel/UCsCAA9Njj3NC1ujdJ9OHg6A/videos'} className='text-2xl text-white'><FaYoutube /></Link>
+                            <Link target='_blank' href={linkWhatsapp} className='text-2xl text-white'> <IoLogoWhatsapp /></Link>
                         </div>
                     </div>
                 </div>
