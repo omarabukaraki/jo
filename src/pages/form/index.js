@@ -23,7 +23,6 @@ const Form = () => {
           <p className='text-red-500'>{errors.password?.message}</p>
           <FormComponent register={register("confirmPassword", { required: 'This felid is required' })} label={t('confirmPasswordLabel')} placeholder={''} type={'password'} />
           <p className='text-red-500'>{errors.confirmPassword?.message}</p>
-          <input type='submit' />
         </form>
 
         <p className='my-2'>{t('termsOfServiceText')} <span className='text-primary font-bold'>{t('termsOfServiceLink')}</span> {t('privacyPolicyText')} <span className='text-primary font-bold'>{t('privacyPolicyLink')}</span></p>
