@@ -52,6 +52,7 @@ const NavBar = () => {
           <LinkComponent route={'/'} linkName={t('navMenuSalesPoints')} />
           <LinkComponent route={'/'} linkName={t('navMenuAgent')} />
           <LinkComponent route={'/'} linkName={t('navMenuContact')} />
+          <LinkComponent route={'/form'} linkName={t('registerForm')} />
         </div>
 
 

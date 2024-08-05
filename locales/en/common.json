@@ -69,5 +69,6 @@
   "termsOfServiceLink": "Terms of Service",
   "privacyPolicyText": "and",
   "privacyPolicyLink": "Privacy Policy",
-  "saveButton": "Save"
+  "saveButton": "Save",
+  "registerForm":"Register Form"
 }
